@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Dados</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 50px; /* Espaço entre os formulários */
+        }
+
+        .form-container {
+            background-color: #800000;
+            padding: 20px 40px;
+            border-radius: 20px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .form-container h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .form-group-radio {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-group-radio label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .form-container input {
+            width: 95%;
+            padding: 10px 10px 10px 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background-color: #4B0000;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #5c0000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Formulário à Esquerda -->
+    <div class="form-container">
+        <h1>Cadastro</h1>
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+        </form>
+    </div>
+
+    <!-- Formulário à Direita -->
+    <div class="form-container">
+        <h1>Seus dados</h1>
+        <form>
+            <div class="form-group-radio">
+                <label><input type="radio" name="sexo" value="Masculino">Masculino</label>
+                <label><input type="radio" name="sexo" value="Feminino">Feminino</label>
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" name="peso">
+            </div>
+            <div class="form-group">
+                <label for="altura">Altura:</label>
+                <input type="number" id="altura" name="altura">
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade">
+            </div>
+            <button type="button" onclick="window.location.href='planilha.html'">Vamos lá!</button>
+        </form>
+    </div>
+</body>
+
+</html>

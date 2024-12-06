@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASY ACAD</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #800000;
+      color: #fff;
+      padding: 15px 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .header-button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 10px;
+      padding: 5px 10px;
+      transition: background-color 0.3s;
+    }
+
+    .header-button:hover {
+      background-color: #a00000;
+      border-radius: 5px;
+    }
+
+    .planilha {
+      padding: 20px;
+    }
+
+    .planilha-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .planilha-header h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .planilha-button {
+      background-color: #a00000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .planilha-button:hover {
+      background-color: #c00000;
+    }
+
+    .treino-dias {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .dia {
+      text-align: center;
+      width: calc(14% - 10px); /* Responsividade ajustada */
+      background-color: #333;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .dia:hover {
+      background-color: #444;
+    }
+
+    .treino-card {
+      background-color: #808080;
+      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .treino-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .card-button {
+      background-color: #a00000;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .card-button:hover {
+      background-color: #c00000;
+    }
+
+    @media (max-width: 768px) {
+      .dia {
+        width: calc(45% - 10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .dia {
+        width: calc(100% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <button class="header-button" onclick="window.location.href='index.html'">Sair</button>
+    </div>
+    <div class="header-center">
+      <h1>EASY ACAD</h1>
+    </div>
+    <div class="header-right">
+      <button class="header-button" onclick="window.location.href='mostrarDados.html'">Meus dados</button>
+      <button class="header-button" onclick="window.location.href='relatorio.html'">Relatório Semanal</button>
+      <button class="header-button" onclick="window.location.href='feedback.html'">Feedback</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="planilha">
+      <div class="planilha-header">
+        <h2>Sua planilha de treino</h2>
+        <button class="planilha-button" onclick="window.location.href='planejar.html'">Planejar Treino</button>
+      </div>
+      <div class="treino-dias">
+        <div class="dia">Segunda-feira
+          <div class="treino-card">
+            <p><strong>Supino Reto</strong></p>
+            <p>Séries: 3</p>
+            <p>Repetições: 10</p>
+            <p>Carga: 20 - 25 - 30</p>
+            <div class="card-buttons">
+              <button class="card-button" onclick="editarTreino('Supino Reto')">Editar</button>
+              <button class="card-button" onclick="excluirTreino('Supino Reto')">Excluir</button>
+            </div>
+          </div>
+          <div class="treino-card">
+            <p><strong>Supino inclinado com halteres</strong></p>
+            <p>Séries: 3</p>
+            <p>Repetições: 10</p>
+            <p>Carga: 20 - 22 - 24</p>
+            <div class="card-buttons">
+              <button class="card-button" onclick="editarTreino('Supino inclinado com halteres')">Editar</button>
+              <button class="card-button" onclick="excluirTreino('Supino inclinado com halteres')">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <div class="dia">Terça-feira</div>
+        <div class="dia">Quarta-feira</div>
+        <div class="dia">Quinta-feira</div>
+        <div class="dia">Sexta-feira</div>
+        <div class="dia">Sábado</div>
+        <div class="dia">Domingo</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function excluirTreino(nomeTreino) {
+      if (confirm(`Deseja realmente excluir o treino: ${nomeTreino}?`)) {
+        // Procura todos os cartões de treino
+        const treinos = document.querySelectorAll('.treino-card');
+        for (let treino of treinos) {
+          // Verifica se o nome do treino está dentro do cartão
+          if (treino.textContent.includes(nomeTreino)) {
+            treino.remove(); // Remove o cartão do DOM
+            alert(`Treino ${nomeTreino} excluído!`);
+            return;
+          }
+        }
+        alert('Treino não encontrado para exclusão!');
+      }
+    }
+    function editarTreino(nomeTreino) {
+    // Localiza o cartão do treino pelo nome
+    const treinos = document.querySelectorAll('.treino-card');
+    for (let treino of treinos) {
+      if (treino.textContent.includes(nomeTreino)) {
+        // Solicita novas informações do usuário
+        const novoNome = prompt('Novo nome do treino:', nomeTreino)?.trim();
+        if (!novoNome) {
+          alert('Nome inválido. A edição foi cancelada.');
+          return;
+        }
+
+        const novasSeries = parseInt(prompt('Novo número de séries:', '3'));
+        if (isNaN(novasSeries) || novasSeries <= 0) {
+          alert('Número de séries inválido. A edição foi cancelada.');
+          return;
+        }
+
+        const novasRepeticoes = parseInt(prompt('Novo número de repetições:', '10'));
+        if (isNaN(novasRepeticoes) || novasRepeticoes <= 0) {
+          alert('Número de repetições inválido. A edição foi cancelada.');
+          return;
+        }
+
+        const novaCarga = prompt('Nova carga (ex.: 20-25-30):', '20-25-30')?.trim();
+        if (!novaCarga) {
+          alert('Carga inválida. A edição foi cancelada.');
+          return;
+        }
+
+        // Atualiza o conteúdo do cartão do treino
+        treino.innerHTML = `
+          <p><strong>${novoNome}</strong></p>
+          <p>Séries: ${novasSeries}</p>
+          <p>Repetições: ${novasRepeticoes}</p>
+          <p>Carga: ${novaCarga}</p>
+          <div class="card-buttons">
+            <button class="card-button" onclick="editarTreino('${novoNome}')">Editar</button>
+            <button class="card-button" onclick="excluirTreino('${novoNome}')">Excluir</button>
+          </div>
+        `;
+
+        alert(`Treino "${nomeTreino}" atualizado com sucesso!`);
+        return;
+      }
+    }
+
+    alert('Treino não encontrado.');
+  }
+  </script>  
+</body>
+</html>

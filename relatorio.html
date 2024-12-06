@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Últimos Acessos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: rgb(0, 0, 0);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgb(255, 255, 255);
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #800000;
+            color: white;
+        }
+
+        .feedback-form {
+            margin-top: 2rem;
+        }
+
+        .feedback-form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .feedback-form button {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #800000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Relatórios</h1>
+    </header>
+    <div class="container">
+        <!-- Relatório de Últimos Acessos -->
+        <h2>Relatório dos Últimos Acessos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código do Usuário</th>
+                    <th>Nome do Usuário</th>
+                    <th>Data de Acesso</th>
+                    <th>Hora de Acesso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>João Silva</td>
+                    <td>04/12/2024</td>
+                    <td>14:30</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Maria Oliveira</td>
+                    <td>03/12/2024</td>
+                    <td>10:45</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Relatório Mensal -->
+        <h2>Relatório Mensal</h2>
+        <p>Valor Bruto do Faturamento Mensal: <strong>R$ 10.000,00</strong></p>
+        <p>Valor Bruto do Lucro Mensal: <strong>R$ 7.000,00</strong></p>
+
+        <!-- Relatório Anual -->
+        <h2>Relatório Anual</h2>
+        <p>Valor Bruto do Faturamento Anual: <strong>R$ 120.000,00</strong></p>
+        <p>Valor Bruto do Lucro Anual: <strong>R$ 84.000,00</strong></p>
+
+        <!-- Relatório de Feedback -->
+        <h2>Relatório de Feedback</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Usuário</th>
+                    <th>Telefone</th>
+                    <th>Observação</th>
+                    <th>Estrelas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td>(11) 98765-4321</td>
+                    <td>Excelente serviço!</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira</td>
+                    <td>(21) 91234-5678</td>
+                    <td>Poderia ser mais rápido.</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

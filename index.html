@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fácil Academia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .header {
+            position: absolute;
+            top: 100px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 6rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .buttons {
+            margin-top: 50px;
+            /* Ajuste da posição dos botões */
+        }
+
+        .button {
+            background-color: #a00000;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #a00000;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle">☀</button>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">EASY <br> ACAD</h1>
+            <p class="subtitle">O SEU CAMINHO PARA UMA VIDA MAIS SAUDÁVEL E ATIVA.</p>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="window.location.href='cadastro.html'">Cadastro</button>
+            <button class="button" onclick="window.location.href='connectar.html'">Conecte-se</button>
+        </div>
+    </div>
+</body>
+
+</html>

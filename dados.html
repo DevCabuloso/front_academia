@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus Dados</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #800000;
+            padding: 30px;
+            border-radius: 20px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .form-container label {
+            display: inline-block;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form-group-radio {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .form-container button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background-color: #4B0000;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #5c0000;
+        }
+
+        .icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Seus dados</h1>
+        <form>
+            <div class="form-group form-group-radio">
+                <label>Sexo:</label>
+                <label><input type="radio" name="sexo" value="Masculino">Masculino</label>
+                <label><input type="radio" name="sexo" value="Feminino">Feminino</label>
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" name="peso">
+            </div>
+            <div class="form-group">
+                <label for="altura">Altura:</label>
+                <input type="number" id="altura" name="altura">
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade">
+            </div>
+            <button type="button" onclick="window.location.href='planilha.html'">Vamos lá!</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

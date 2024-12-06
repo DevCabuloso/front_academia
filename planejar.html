@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Treino</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #a00000;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .back-arrow,
+        .header .theme-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .week-day {
+            margin-bottom: 20px;
+        }
+
+        .week-day label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .week-day select {
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .training-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            border-collapse: collapse;
+        }
+
+        .training-table th,
+        .training-table td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .edit-btn:hover {
+            color: #FFD700;
+        }
+
+        .delete-btn:hover {
+            color: #FF4500;
+        }
+
+        .save-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #a00000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .save-btn:hover {
+            background-color: #5c0000;
+        }
+
+        .new-exercise-form {
+            display: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .new-exercise-form input,
+        .new-exercise-form select {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+
+        .new-exercise-form label {
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back-arrow" onclick="window.location.href='planilha.html'">&larr;</div>
+        <h1>EASY ACAD</h1>
+        <div class="theme-icon">&#9728;</div>
+    </header>
+    <main>
+        <h2>Planejamento de Treino</h2>
+        <div class="week-day">
+            <label for="day-select">Dia da semana:</label>
+            <select id="day-select">
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+        </div>
+        <table class="training-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Exercício:</th>
+                    <th>Série:</th>
+                    <th>Repetições:</th>
+                    <th>Carga:</th>
+                </tr>
+            </thead>
+            <tbody id="exercise-list">
+                <tr>
+                    <td class="actions">
+                        <button class="edit-btn">&#9998;</button>
+                        <button class="delete-btn">&#128465;</button>
+                    </td>
+                    <td>Supino Reto</td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td>20 - 25 - 30</td>
+                </tr>
+                <tr>
+                    <td class="actions">
+                        <button class="edit-btn">&#9998;</button>
+                        <button class="delete-btn">&#128465;</button>
+                    </td>
+                    <td>Supino inclinado com halteres</td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td>20 - 22 - 24</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="save-btn" onclick="toggleNewExerciseForm()">Novo Exercício</button>
+        <button class="save-btn">Salvar</button>
+
+        <div class="new-exercise-form" id="new-exercise-form">
+            <h3>Cadastrar Novo Exercício</h3>
+            <label for="exercise-name">Nome do Exercício:</label>
+            <input type="text" id="exercise-name">
+            <label for="series">Séries:</label>
+            <input type="number" id="series" min="1">
+            <label for="repetitions">Repetições:</label>
+            <input type="number" id="repetitions" min="1">
+            <label for="weight">Carga (kg):</label>
+            <input type="text" id="weight">
+            <button class="save-btn" onclick="addNewExercise()">Adicionar</button>
+        </div>
+    </main>
+
+    <script>
+        function toggleNewExerciseForm() {
+            const form = document.getElementById('new-exercise-form');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function addNewExercise() {
+            const name = document.getElementById('exercise-name').value;
+            const series = document.getElementById('series').value;
+            const repetitions = document.getElementById('repetitions').value;
+            const weight = document.getElementById('weight').value;
+
+            if (name && series && repetitions && weight) {
+                const tableBody = document.getElementById('exercise-list');
+                const newRow = document.createElement('tr');
+
+                newRow.innerHTML = `
+                    <td class="actions">
+                        <button class="edit-btn">&#9998;</button>
+                        <button class="delete-btn">&#128465;</button>
+                    </td>
+                    <td>${name}</td>
+                    <td>${series}</td>
+                    <td>${repetitions}</td>
+                    <td>${weight}</td>
+                `;
+
+                tableBody.appendChild(newRow);
+                toggleNewExerciseForm();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        }
+    </script>
+</body>
+
+</html>

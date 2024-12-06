@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Dados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #a00000;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .back-arrow,
+        .header .theme-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .user-data {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .user-data div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .user-data label {
+            font-size: 18px;
+        }
+
+        .edit-icon {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .edit-icon:hover {
+            color: #FFD700;
+        }
+
+        .editable {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .editable:focus {
+            border-bottom: 1px solid #FFD700;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back-arrow" onclick="window.location.href='planilha.html'">&larr;</div>
+        <h1>EASY ACAD</h1>
+        <div class="theme-icon">&#9728;</div>
+    </header>
+    <main>
+        <h2>Meus dados</h2>
+        <div class="user-data">
+            <div>
+                <label>Nome:</label>
+                <input type="text" class="editable" id="nome" value="Digite seu nome" readonly>
+                <span class="edit-icon" onclick="enableEdit('nome')">&#9998;</span>
+            </div>
+            <div>
+                <label>Altura:</label>
+                <input type="text" class="editable" id="altura" value="Digite sua altura" readonly>
+                <span class="edit-icon" onclick="enableEdit('altura')">&#9998;</span>
+            </div>
+            <div>
+                <label>CMI:</label>
+                <input type="text" class="editable" id="cmi" value="Digite seu CMI" readonly>
+                <span class="edit-icon" onclick="enableEdit('cmi')">&#9998;</span>
+            </div>
+            <div>
+                <label>Idade:</label>
+                <input type="text" class="editable" id="idade" value="Digite sua idade" readonly>
+                <span class="edit-icon" onclick="enableEdit('idade')">&#9998;</span>
+            </div>
+        </div>
+    </main>
+    <script>
+        function enableEdit(id) {
+            const input = document.getElementById(id);
+            input.removeAttribute('readonly'); // Remove o atributo que impede edição
+            input.focus(); // Coloca o foco no campo
+            input.addEventListener('blur', () => {
+                // Quando o campo perder o foco, ele volta para readonly
+                input.setAttribute('readonly', true);
+            });
+        }
+    </script>
+</body>
+
+</html>
